@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HamiMuComposeIIITII.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ParseString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[ { "typeNr": 5, "typeName": "Unknown", "argNr": 3, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ ] }, { "typeNr": 6, "typeName": "Beat", "argNr": 8, "argName": [ "Key", "Line", "Sp", "spl", "line", "unkn1", "unkn2", "additionalNote" ], "extra": [ { "argNr": 7, "argIf": 6, "eargL": 8, "argName": null, "isSpecial": false } ] }, { "typeNr": 14, "typeName": "Unknown", "argNr": 3, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ { "argNr": 2, "argIf": 0, "eargL": 0, "argName": null, "isSpecial": true } ] }, { "typeNr": 18, "typeName": "Unknown", "argNr": 4, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ { "argNr": 3, "argIf": 0, "eargL": 0, "argName": null, "isSpecial": true } ] }, { "typeNr": 19, "typeName": "Unknown", "argNr": 6, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ { "argNr": 5, "argIf": 6, "eargL": 8, "argName": null, "isSpecial": false }, { "argNr": 12, "argIf": 6, "eargL": 8, "argName": null, "isSpecial": false } ] }, { "typeNr": 20, "typeName": "Unknown", "argNr": 4, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ ] }, { "typeNr": 22, "typeName": "Unknown", "argNr": 3, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ { "argNr": 1, "argIf": 4, "eargL": 2, "argName": null, "isSpecial": false } ] }, { "typeNr": 24, "typeName": "Unknown", "argNr": 3, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ ] }, { "typeNr": 32, "typeName": "Unknown", "argNr": 1, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ ] }, { "typeNr": 52, "typeName": "Unknown", "argNr": 7, "argName": [ "unkn1", "unkn2", "unkn3" ], "extra": [ ] } ]</Value>
+    </Setting>
+    <Setting Name="Recent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">["","","","","","","","","",""]</Value>
+    </Setting>
+    <Setting Name="UpdateNotice" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NONE</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

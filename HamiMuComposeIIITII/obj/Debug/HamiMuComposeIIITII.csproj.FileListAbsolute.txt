@@ -1,0 +1,34 @@
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.exe.config
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.exe
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.pdb
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.csprojResolveAssemblyReference.cache
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.Form1.resources
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.Properties.Resources.resources
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.csproj.GenerateResource.Cache
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.exe
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.pdb
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.NoteEditor.resources
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.CreateProject.resources
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.UpdateMessage.resources
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\CSCore.dll
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\CSCore.xml
+C:\Users\Nutzer\Documents\Visual Studio 2015\Projects\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.SetPlayerPos.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.exe.config
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.exe
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.pdb
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.exe
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\HamiMuComposeIIITII.pdb
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\CSCore.dll
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\CSCore.xml
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.csprojResolveAssemblyReference.cache
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.CreateProject.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.Form1.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.NoteEditor.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.Properties.Resources.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.SetPlayerPos.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.UpdateMessage.resources
+C:\Users\Nutzer\Source\Repos\HamiMuComposeIII\HamiMuComposeIIITII\obj\Debug\HamiMuComposeIIITII.csproj.GenerateResource.Cache

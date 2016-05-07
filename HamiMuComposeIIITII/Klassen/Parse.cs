@@ -69,6 +69,7 @@ namespace HamiMuComposeIIITII
             List<instruction> inst = new List<instruction>();
             while (br.BaseStream.Position < length)
             {
+                /* ---NEW, BUGGY WAY---
                 int time=-2, type=-2;
                 try
                 {
@@ -92,49 +93,67 @@ namespace HamiMuComposeIIITII
                     }
                 if (!handle)
                     inst.Add(new instruction(type, time, new List<int>()));
+                    */
+
+                //---OLD; SAVE WAY---
+                OldParser op = new OldParser();
+                instruction i = op.parse_ins(br);
+                inst.Add(i);
             }
+
+
 
 
             //--------------------------
             //  STEP 3: Dumping Notes
             //--------------------------
+
+            bool ignoreFirstNote = false;
+
             for (int i = 0; i < inst.Count; i++)
             {
                 if ((inst[i].type == 6 || (inst[i].type == 14 && inst[i].args.Count > 4 && inst[i].args[4] == 6) || (inst[i].type == 19 && inst[i].args.Count > 5 && inst[i].args[5] == 6)) && inst[i].time > 200)
-                {   
-                    if(inst[i].type != 6)
+                {
+                    if (ignoreFirstNote)
                     {
-                        int test = 0;
-                    }
-                    List<int> args = new List<int>();
-                    args.Add(inst[i].time);
-                    args.Add(inst[i].type);
-                    args.AddRange(inst[i].args);
-                    Note n = new Note(args.ToArray());
-                    if (n.Position == Line.Upper)
-                        LineTop.Add(n);
-                    else if (n.Position == Line.Middle)
-                        LineMiddle.Add(n);
-                    else LineBottom.Add(n);
-
-                    if(args[9] == 6)
-                    {
-                        for(int x = 2; x < 9; x++)
+                        if (inst[i].type != 6)
                         {
-                            args[x] = args[x + 8];
+                            int test = 0;
                         }
-                        n = new Note(args.ToArray());
+                        List<int> args = new List<int>();
+                        args.Add(inst[i].time);
+                        args.Add(inst[i].type);
+                        args.AddRange(inst[i].args);
+                        Note n = new Note(args.ToArray());
                         if (n.Position == Line.Upper)
                             LineTop.Add(n);
                         else if (n.Position == Line.Middle)
                             LineMiddle.Add(n);
                         else LineBottom.Add(n);
-                    }
 
-                    inst.RemoveAt(i);
-                    i--;
+                        if (args[9] == 6)
+                        {
+                            for (int x = 2; x < 9; x++)
+                            {
+                                args[x] = args[x + 8];
+                            }
+                            n = new Note(args.ToArray());
+                            if (n.Position == Line.Upper)
+                                LineTop.Add(n);
+                            else if (n.Position == Line.Middle)
+                                LineMiddle.Add(n);
+                            else LineBottom.Add(n);
+                        }
+
+                        inst.RemoveAt(i);
+                        i--;
+                    }
+                    else ignoreFirstNote = true;
                 }
             }
+
+            
+            
 
 
             //--------------------------
@@ -206,8 +225,8 @@ namespace HamiMuComposeIIITII
                         {
                             if (instr[x].args.Count > 8)
                             {
-                                MessageBox.Show("Three notes are on the same time. Have to abort.");
-                                throw new Exception("NOTE ADD ERROR");
+                                MessageBox.Show("Three notes are on the same time.");
+                                //throw new Exception("NOTE ADD ERROR #0");
                             }
                             instr[x].args.RemoveAt(instr[x].args.Count - 1);
                             instr[x].args.Add(6);
@@ -233,9 +252,10 @@ namespace HamiMuComposeIIITII
             {
                 if (NonBeat[i].args.Count <= 1 || NonBeat[i].time <= 0)
                 {
-                    if (NonBeat[i].type == -1)
-                        bw.Write(NonBeat[i].time);
-                    else
+                    //---FOR NEW WAY---
+                    //if (NonBeat[i].type == -1)
+                    //    bw.Write(NonBeat[i].time);
+                    //else
                         NonBeat[i].Write(bw);
                 }
                 else if (bpos < instr.Count && instr[bpos].time < NonBeat[i].time)

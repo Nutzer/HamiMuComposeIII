@@ -75,7 +75,7 @@ namespace HamiMuComposeIIITII
     public enum DrawMode { NoteDrag, MainMenu };
     class Draw
     {
-        public Image a, b, x, y, st, da, db, dx, dy, ds, cir2, line, bnl, spl;
+        public Image a, b, x, y, st, da, db, dx, dy, ds, cir2, line, bnl, spl, anzl;
         public int Abstand, lastPos;
         public Note DragNote;
         public int SelNote;
@@ -100,6 +100,7 @@ namespace HamiMuComposeIIITII
             line = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\hold.png");
             bnl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\bln.png");
             spl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\holds.png");
+            anzl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\line.png");
             Abstand = 32;
             SelNote = -1;
             lastPos = -1;
@@ -136,6 +137,8 @@ namespace HamiMuComposeIIITII
             int npos = s.Width / 2 - pos * Abstand;
             lastPos += (npos - lastPos) / 5;
 
+            g.DrawImage(anzl, new PointF(s.Width / 2+lastPos-npos, 0));
+
             g.DrawImage(a, new PointF(10, 40));
             g.DrawImage(b, new PointF(60, 40));
             g.DrawImage(x, new PointF(110, 40));
@@ -149,7 +152,7 @@ namespace HamiMuComposeIIITII
             g.DrawImage(b, new PointF(320, 40));
             g.DrawImage(x, new PointF(380, 40));
             g.DrawImage(y, new PointF(440, 40));
-
+            
             for (int i = min(pos-PreLoad, 0); i < pos+PreLoad; i++)
             {
                 Note n = p.getDsc().GetNoteLine(Line.Upper, i);

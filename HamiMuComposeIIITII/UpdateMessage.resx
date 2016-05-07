@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>     v 0.4.05
+Fixes:
+&gt;Fixed Setup note save mistake
+
+     v 0.4.04sp2
+Fixes:
+&gt;Minor Fixes
+
+     v 0.4.04sp
+Fixes:
+&gt;Reverted to old parsing system :'(
+&gt;"Fixed" Save error
+
+     v 0.4.02a
+Fixes:
+&gt;Fixed History Bug when history&lt;1&amp;ステーウィ-Fixes activated
+&gt;Added time line
+
+     v 0.4.01a
+Fixes:
+&gt;Added ステーウィ-Fixes for last note!
+
+
+     v 0.4.00b
+Fixes:
+&gt;Removed Debug bug
+
+     v 0.4.00a
+Fixes:
+&gt;New Interface
+&gt;Stopped Relying on Type 14/19 Notes
+
+
+Known Errors:
+&gt;Watashi no Jikan crashes when edited
+&gt;PV_002 has unknown/mismaching instructions.
+</value>
+  </data>
 </root>

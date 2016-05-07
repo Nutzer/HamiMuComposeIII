@@ -38,7 +38,7 @@ namespace HamiMuComposeIIITII
         public void NoteAdded(Note n)
         {
             removeAlLatter();
-            if (changes.Count > Position && changes[Position].type == ChangeType.Move)
+            if (changes.Count > 1 && changes.Count > Position && changes[Position].type == ChangeType.Move)
             {
                 Change c = changes[Position];
                 c.n2 = n;

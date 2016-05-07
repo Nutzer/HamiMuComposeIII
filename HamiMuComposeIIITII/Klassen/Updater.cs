@@ -12,7 +12,7 @@ namespace HamiMuComposeIIITII
     public class Updater
     {
         public string updateString;
-        string Version = "0.4.0.00b";
+        string Version = "0.4.0.05";
         string[] versions;
         string updateUrl = "http://www.nutzer.bplaced.net/hamimu/versions.txt";
         public bool isUpdate;

@@ -91,6 +91,7 @@ namespace HamiMuComposeIIITII
         {
             instruction ins = new instruction();
             ins.time = time;
+            ins.orgtime = orgtime;
             ins.args = new List<int>();
             if (orgNote == -1)
             ins.type = 6;
@@ -152,13 +153,206 @@ namespace HamiMuComposeIIITII
             }
         }
     }
-
     public class instruction
     {
         public int type, time, orgtime;
         public List<int> args;
         public instruction() { }
         public instruction(int Type, int Time, List<int> Args) { orgtime = Time; type = Type; time = Time; args = Args; }
+        public int[] getArgs()
+        {
+            List<int> rargs = new List<int>();
+            if (type == 6)
+            {
+                rargs.Add(args[4]);
+                rargs.Add(args[5]);
+                rargs.Add(args[6]);
+                if (isDouble())
+                {
+                    rargs.Add(args[11]);
+                    rargs.Add(args[12]);
+                    rargs.Add(args[13]);
+                }
+            }
+            if (type == 19)
+            {
+                rargs.Add(args[10]);
+                rargs.Add(args[11]);
+                rargs.Add(args[12]);
+                if (isDouble())
+                {
+                    rargs.Add(args[17]);
+                    rargs.Add(args[18]);
+                    rargs.Add(args[19]);
+                }
+            }
+            return rargs.ToArray();
+        }
+        public void setArgs(int[] tp)
+        {
+            if (type == 6)
+            {
+                args[4] = tp[0];
+                args[5] = tp[1];
+                args[6] = tp[2];
+                if (isDouble() && tp.Length > 3)
+                {
+                    args[11] = tp[3];
+                    args[12] = tp[4];
+                    args[13] = tp[5];
+                }
+            }
+            if (type == 19)
+            {
+                args[10] = tp[0];
+                args[11] = tp[1];
+                args[12] = tp[2];
+                if (isDouble() && tp.Length > 3)
+                {
+                    args[17] = tp[3];
+                    args[18] = tp[4];
+                    args[19] = tp[5];
+                }
+            }
+        }
+        public bool isArgs()
+        {
+            if (type == 6) return (args[4] != 0) || (args[5] != 0) || (args[6] != 0);
+            if (type == 19) return (args[10] != 0) || (args[11] != 0) || (args[12] != 0);
+            return false;
+        }
+        public int getLStart()
+        {
+            if (type == 6) return args[6] / 1000;
+            if (type == 19) return args[12] / 1000;
+            return 0;
+        }
+        public int getLn()
+        {
+            if (type == 6) return args[1];
+            if (type == 19) return args[7];
+            return 0;
+        }
+        public int getSp()
+        {
+            if (type == 6) return args[2];
+            if (type == 19) return args[8];
+            return 0;
+        }
+        public int getSpln()
+        {
+            if (type == 6) return args[3];
+            if (type == 19) return args[9];
+            return 0;
+        }
+        public bool isDouble()
+        {
+            if (type == 6) return args.Count > 9;
+            if (type == 19) return args.Count > 12;
+            return false;
+        }
+        public void setLn(int val)
+        {
+            if (type == 6) args[1] = val;
+            if (type == 19) args[7] = val;
+        }
+        public void setSp(int val)
+        {
+            if (type == 6) args[2] = val;
+            if (type == 19) args[8] = val;
+        }
+        public void setSpln(int val)
+        {
+            if (type == 6) args[3] = val;
+            if (type == 19) args[9] = val;
+        }
+        public int getTime()
+        {
+            return time;
+        }
+        public int getNote()
+        {
+            if (type == 6) return args[0];
+            return args[6];
+        }
+        public int getSecondNote()
+        {
+            if (!isDouble()) return -1;
+            if (type == 6) return args[8];
+            return args[14];
+        }
+        public void setNote(int nt)
+        {
+            if (type == 6) args[0] = nt;
+            else args[6] = nt;
+        }
+        public void setSecondNote(int nt)
+        {
+            if (!isDouble()) return;
+            if (type == 6) args[8] = nt;
+            else args[14] = nt;
+        }
+        public int getPos()
+        {
+            if (type == 6) return args[1];
+            return args[7];
+        }
+        public void setPos(int nr)
+        {
+            if (type == 6) args[1] = nr;
+            else args[7] = nr;
+        }
+        public bool isSingleTop()
+        {
+            return !isDouble() && getPos() != 0;
+        }
+        public bool IsSingleBottom()
+        {
+            return !isDouble() && getPos() == 0;
+        }
+        public void ConvertToSingle(bool topper)
+        {
+            if (topper && isDouble())
+            {
+                for (int i = 0; i < 6; i++)
+                    args[i] = args[i + 8];
+                setPos(1000);
+            }
+            List<int> tmp = new List<int>(args);
+            args = new List<int>();
+            for (int i = 0; i < 7; i++)
+                args.Add(tmp[i]);
+            args.Add(1);
+        }
+        public void ConvertToDouble(int newNote)
+        {
+            args[7] = 6;
+            if (isSingleTop())
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    args.Add(args[i]);
+                    args[i] = 0;
+                }
+                setNote(newNote);
+            }
+            else
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    args.Add(0);
+                }
+                setSecondNote(newNote);
+            }
+        }
+        public void ConvertTo6()
+        {
+            List<int> buf = new List<int>(args);
+            args = new List<int>();
+            for (int i = 0; i < buf.Count + 6; i++)
+                args.Add(buf[i + 6]);
+            type = 6;
+        }
         public void Write(BinaryWriter bw)
         {
             bw.Write(time);
@@ -216,5 +410,125 @@ namespace HamiMuComposeIIITII
 
             return ins;
         }
+    }
+    public class OldParser
+    {
+        public string retO;
+
+        public instruction parse_ins(BinaryReader br)
+        {
+            instruction ins = new instruction();
+            ins.time = br.ReadInt32();
+            ins.type = br.ReadInt32();
+            ins.orgtime = ins.time;
+            ins.args = new List<int>();
+            int[] recTypes = { 5, 6, 14, 18, 19, 20, 22, 24, 32, 52 };
+
+            switch (ins.type)
+            {
+                case 5:
+                    for (int i = 0; i < 3; i++)
+                        ins.args.Add(br.ReadInt32());
+                    break;
+                case 6:
+                    for (int i = 0; i < 8; i++)
+                        ins.args.Add(br.ReadInt32());
+                    if (ins.args[7] == 6)
+                        for (int i = 0; i < 8; i++)
+                            ins.args.Add(br.ReadInt32());
+                    break;
+                case 14:
+                    for (int i = 0; i < 3; i++)
+                        ins.args.Add(br.ReadInt32());
+                    switch (ins.args[2])
+                    {
+                        case 4:
+                            ins.args.Add(br.ReadInt32()); //TODO
+                            break;
+                        case 5:
+                            for (int i = 0; i < 3; i++)
+                                ins.args.Add(br.ReadInt32());
+                            if (ins.args[5] == 22)
+                            {
+                                for (int i = 0; i < 3; i++)
+                                    ins.args.Add(br.ReadInt32());
+                                if (ins.args[8] == 4)
+                                    for (int i = 0; i < 2; i++)
+                                        ins.args.Add(br.ReadInt32());
+                            }
+                            break;
+                        case 18:
+                            for (int i = 0; i < 4; i++)
+                                ins.args.Add(br.ReadInt32());
+                            if (ins.args[6] != 1)
+                                for (int i = 0; i < 6; i++)
+                                    ins.args.Add(br.ReadInt32());
+                            break;
+                        case 22:
+                            for (int i = 0; i < 3; i++)
+                                ins.args.Add(br.ReadInt32());
+                            if (ins.args[4] == 4)
+                                for (int i = 0; i < 2; i++)
+                                    ins.args.Add(br.ReadInt32());
+                            break;
+                        case 24:
+                            for (int i = 0; i < 3; i++)
+                                ins.args.Add(br.ReadInt32());
+                            break;
+                        case 32:
+                            ins.args.Add(br.ReadInt32());
+                            break;
+                        case 52:
+                            for (int i = 0; i < 7; i++)
+                                ins.args.Add(br.ReadInt32());
+                            break;
+                    }
+                    break;
+                case 18:
+                    for (int i = 0; i < 4; i++)
+                        ins.args.Add(br.ReadInt32());
+                    if (ins.args[3] != 1)
+                        for (int i = 0; i < 6; i++)
+                            ins.args.Add(br.ReadInt32());
+                    break;
+                case 19:
+                    for (int i = 0; i < 6; i++)
+                        ins.args.Add(br.ReadInt32());
+                    if (ins.args[5] == 6)
+                    {
+                        for (int i = 0; i < 8; i++)
+                            ins.args.Add(br.ReadInt32());
+                        if (ins.args[13] == 6)
+                            for (int i = 0; i < 8; i++)
+                                ins.args.Add(br.ReadInt32());
+                    }
+                    break;
+                case 20:
+                    for (int i = 0; i < 4; i++)
+                        ins.args.Add(br.ReadInt32());
+
+                    break;
+                case 22:
+                    for (int i = 0; i < 3; i++)
+                        ins.args.Add(br.ReadInt32());
+                    if (ins.args[1] == 4)
+                        for (int i = 0; i < 2; i++)
+                            ins.args.Add(br.ReadInt32());
+                    break;
+                case 24:
+                    for (int i = 0; i < 3; i++)
+                        ins.args.Add(br.ReadInt32());
+                    break;
+                case 32:
+                    ins.args.Add(br.ReadInt32());
+                    break;
+                case 52:
+                    for (int i = 0; i < 7; i++)
+                        ins.args.Add(br.ReadInt32());
+                    break;
+            }
+            return ins;
+        }
+
     }
 }

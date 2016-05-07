@@ -43,6 +43,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ntoeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moreDistanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +58,8 @@
             this.addSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playPauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsForステーウィToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNoteSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +94,8 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.displayToolStripMenuItem,
-            this.soundToolStripMenuItem});
+            this.soundToolStripMenuItem,
+            this.toolsForステーウィToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(920, 24);
@@ -190,6 +193,22 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // displayToolStripMenuItem
             // 
@@ -299,21 +318,20 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // undoToolStripMenuItem
+            // toolsForステーウィToolStripMenuItem
             // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.toolsForステーウィToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNoteSpaceToolStripMenuItem});
+            this.toolsForステーウィToolStripMenuItem.Name = "toolsForステーウィToolStripMenuItem";
+            this.toolsForステーウィToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.toolsForステーウィToolStripMenuItem.Text = "Tools for ステーウィ";
             // 
-            // redoToolStripMenuItem
+            // addNoteSpaceToolStripMenuItem
             // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            this.addNoteSpaceToolStripMenuItem.Name = "addNoteSpaceToolStripMenuItem";
+            this.addNoteSpaceToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.addNoteSpaceToolStripMenuItem.Text = "Add note space";
+            this.addNoteSpaceToolStripMenuItem.Click += new System.EventHandler(this.addNoteSpaceToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -367,6 +385,8 @@
         private System.Windows.Forms.ToolStripMenuItem playPauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsForステーウィToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNoteSpaceToolStripMenuItem;
     }
 }
 

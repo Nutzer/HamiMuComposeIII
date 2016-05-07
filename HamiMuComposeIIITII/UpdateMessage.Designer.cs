@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateMessage));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -49,11 +50,10 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBox1.Size = new System.Drawing.Size(344, 371);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Fixes:\r\n>New Interface\r\n>Stopped Relying on Type 14/19 Notes\r\n\r\n\r\nKnown Errors:\r\n" +
-    ">Watashi no Jikan crashes when edited\r\n>PV_002 has unknown/mismaching instructio" +
-    "ns.\r\n";
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // UpdateMessage
             // 

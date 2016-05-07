@@ -46,9 +46,9 @@ namespace HamiMuComposeIIITII
 
             menuStrip1.Visible = false;
 
-            if (Properties.Settings.Default.UpdateNotice != "0.4.0.00a Original")
+            if (Properties.Settings.Default.UpdateNotice != "0.4.0.05")
             {
-                Properties.Settings.Default.UpdateNotice = "0.4.0.00a Original";
+                Properties.Settings.Default.UpdateNotice = "0.4.0.05";
                 UpdateMessage um = new UpdateMessage(Properties.Settings.Default.UpdateNotice);
                 um.ShowDialog();
                 Properties.Settings.Default.Save();
@@ -141,7 +141,14 @@ namespace HamiMuComposeIIITII
         {
             if(p != null)
             {
-                p.Save("");
+                try
+                {
+                    p.Save("");
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Could not save. Please select a different path.\r\n\r\n(Message: " + ex.Message + ")");
+                    saveAsToolStripMenuItem_Click(null, null);
+                }
             }
         }
 
@@ -149,7 +156,15 @@ namespace HamiMuComposeIIITII
         {
             if (p != null)
             {
-                p.Export("");
+                try
+                {
+                    p.Export("");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not export. Please select a different path.\r\n\r\n(Message: " + ex.Message + ")");
+                    exportAsToolStripMenuItem_Click(null, null);
+                }
             }
         }
 
@@ -445,6 +460,12 @@ namespace HamiMuComposeIIITII
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             p.getHistory().redo(p);
+        }
+
+        private void addNoteSpaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            p.getDsc().LastNote++;
+            hScrollBar1.Maximum++;
         }
     }
 }

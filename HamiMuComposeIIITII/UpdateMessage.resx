@@ -118,7 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>     v 0.4.05
+    <value>     v 0.4.06
+Fixes:
+&gt;Fixed Parser out-of-range problem
+&gt;Added time stamps
+
+     v 0.4.05
 Fixes:
 &gt;Fixed Setup note save mistake
 
@@ -149,6 +154,7 @@ Fixes:
 Fixes:
 &gt;New Interface
 &gt;Stopped Relying on Type 14/19 Notes
+&gt;Fixed Shortcuts to scroll through sound, too
 
 
 Known Errors:

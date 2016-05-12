@@ -12,14 +12,23 @@ namespace HamiMuComposeIIITII
     public class Updater
     {
         public string updateString;
-        string Version = "0.4.0.05";
+        string Version = "0.4.0.06";
         string[] versions;
         string updateUrl = "http://www.nutzer.bplaced.net/hamimu/versions.txt";
         public bool isUpdate;
-        
-        
+
+
         public Updater()
         {
+            updateString = "Getting Update data...";
+            System.ComponentModel.BackgroundWorker bw1 = new System.ComponentModel.BackgroundWorker();
+            bw1.DoWork += Bw1_DoWork;
+            isUpdate = false;
+            bw1.RunWorkerAsync();
+        }
+        public Updater(string version)
+        {
+            Version = version;
             updateString = "Getting Update data...";
             System.ComponentModel.BackgroundWorker bw1 = new System.ComponentModel.BackgroundWorker();
             bw1.DoWork += Bw1_DoWork;

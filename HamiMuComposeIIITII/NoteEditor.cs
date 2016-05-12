@@ -22,7 +22,7 @@ namespace HamiMuComposeIIITII
             n = x;
         }
         public Note n;
-        Draw d = new Draw();
+         Draw d = new Draw();
         private void NoteEditor_Load(object sender, EventArgs e)
         {
             info.Text = info.Text.Replace("Y", n.time.ToString()).Replace("Z", n.Position.ToString());

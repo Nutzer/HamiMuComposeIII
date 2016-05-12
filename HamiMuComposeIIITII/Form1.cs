@@ -45,10 +45,10 @@ namespace HamiMuComposeIIITII
                 }
 
             menuStrip1.Visible = false;
-
-            if (Properties.Settings.Default.UpdateNotice != "0.4.0.05")
+            string version = "0.4.0.06";
+            if (Properties.Settings.Default.UpdateNotice != version)
             {
-                Properties.Settings.Default.UpdateNotice = "0.4.0.05";
+                Properties.Settings.Default.UpdateNotice = version;
                 UpdateMessage um = new UpdateMessage(Properties.Settings.Default.UpdateNotice);
                 um.ShowDialog();
                 Properties.Settings.Default.Save();
@@ -57,13 +57,13 @@ namespace HamiMuComposeIIITII
             mouse = new Point(0, 0);
            
             p = new Project();
-            d = new Draw();
+            d = new Draw(version);
             timer1.Interval = 1;
             timer1.Start();
             Size = new Size(Size.Width, 320);
 
             Font f = new Font(SystemFonts.DefaultFont.FontFamily, 25.0f);
-            d.items.Add(new FadeInItem(FadeMode.FadeBottom, "HamiMuCompose III 0.0.4.00A!!", f, new PointF(100, 20), 10, false));
+            d.items.Add(new FadeInItem(FadeMode.FadeBottom, "HamiMuCompose III "+version+"!!", f, new PointF(100, 20), 10, false));
             f = new Font(SystemFonts.DefaultFont.FontFamily, 18.0f);
             d.items.Add(new FadeInItem(FadeMode.FadeRight, "By Nutzer!", f, new PointF(600, 40), 12, false));
             d.items.Add(new FadeInItem(FadeMode.FadeBottom, "Recent Projects:", f, new PointF(40, 100), 15, false));
@@ -71,9 +71,10 @@ namespace HamiMuComposeIIITII
             d.items.Add(new FadeInItem(FadeMode.FadeTop, "Open Project", f, new PointF(240, 200), 15, true));
             f = new Font(SystemFonts.DefaultFont.FontFamily, 12.0f);
             for (int i = 0; i < 10; i++)
-                if(recent[i] != "")
-                    d.items.Add(new FadeInItem(FadeMode.FadeRight, i.ToString() + ": " + Path.GetFileNameWithoutExtension(recent[i]), f, new PointF(100 + (i * 100), 150), 20 + i*4, true));
+                if (recent[i] != "")
+                    d.items.Add(new FadeInItem(FadeMode.FadeRight, i.ToString() + ": " + Path.GetFileNameWithoutExtension(recent[i]), f, new PointF(100 + (i * 170), 150 + (i % 2)*15), 20 + i * 4, true));
 
+            hScrollBar1.Maximum = 300;
             f = new Font(SystemFonts.DefaultFont.FontFamily, 8.0f);
             d.items.Add(new FadeInItem(FadeMode.FadeBottom, "Retrieving Update data...", f, new PointF(20, panel1.Size.Height-35), 15, false));
 
@@ -404,22 +405,26 @@ namespace HamiMuComposeIIITII
         {
             if (hScrollBar1.Value < hScrollBar1.Maximum)
                 hScrollBar1.Value++;
+            hScrollBar1_Scroll(null, null);
         }
 
         private void backwardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (hScrollBar1.Value > 0)
                 hScrollBar1.Value--;
+            hScrollBar1_Scroll(null, null);
         }
 
         private void toStartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             hScrollBar1.Value = 0;
+            hScrollBar1_Scroll(null, null);
         }
 
         private void toEndToolStripMenuItem_Click(object sender, EventArgs e)
         {
             hScrollBar1.Value = hScrollBar1.Maximum - 1;
+            hScrollBar1_Scroll(null, null);
         }
 
         private void addSoundToolStripMenuItem_Click(object sender, EventArgs e)

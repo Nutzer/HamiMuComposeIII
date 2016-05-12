@@ -84,9 +84,9 @@ namespace HamiMuComposeIIITII
         List<int> handledNotes;
         int PreLoad;
         public Updater u;
-        public Draw()
+        public Draw(string version)
         {
-            a = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath)+"\\img\\a.png");
+            a = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\a.png");
             b = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\b.png");
             x = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\x.png");
             y = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\y.png");
@@ -107,7 +107,31 @@ namespace HamiMuComposeIIITII
             mode = DrawMode.MainMenu;
             PreLoad = 100;
             items = new List<FadeInItem>();
-            u = new Updater();
+            u = new Updater(version);
+        }
+        public Draw()
+        {
+            a = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\a.png");
+            b = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\b.png");
+            x = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\x.png");
+            y = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\y.png");
+            st = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\s.png");
+            da = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\da.png");
+            db = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\db.png");
+            dx = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\dx.png");
+            dy = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\dy.png");
+            ds = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\ds.png");
+            cir2 = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\cir2.png");
+            line = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\hold.png");
+            bnl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\bln.png");
+            spl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\holds.png");
+            anzl = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\img\\line.png");
+            Abstand = 32;
+            SelNote = -1;
+            lastPos = -1;
+            mode = DrawMode.MainMenu;
+            PreLoad = 100;
+            items = new List<FadeInItem>();
         }
         public int min(int a, int b)
         {
@@ -152,7 +176,14 @@ namespace HamiMuComposeIIITII
             g.DrawImage(b, new PointF(320, 40));
             g.DrawImage(x, new PointF(380, 40));
             g.DrawImage(y, new PointF(440, 40));
-            
+            g.DrawString(pos.ToString() + " of " + p.getDsc().LastNote.ToString(), SystemFonts.DefaultFont, Brushes.Black, new PointF(s.Width - 100, s.Height - 35));
+            if(p.s != null)
+            {
+                g.DrawString("Real Time: " + (int)(p.s.getpos()/1000)+":"+(p.s.getpos()%1000/10).ToString("D2"), SystemFonts.DefaultFont, Brushes.Black, new PointF(s.Width - 100, s.Height - 50));
+            }
+            else
+                g.DrawString("Add music for Real time", SystemFonts.DefaultFont, Brushes.Gray, new PointF(s.Width - 130, s.Height - 50));
+
             for (int i = min(pos-PreLoad, 0); i < pos+PreLoad; i++)
             {
                 Note n = p.getDsc().GetNoteLine(Line.Upper, i);

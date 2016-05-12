@@ -97,7 +97,12 @@ namespace HamiMuComposeIIITII
 
                 //---OLD; SAVE WAY---
                 OldParser op = new OldParser();
-                instruction i = op.parse_ins(br);
+                instruction i;
+                try
+                {
+                    i = op.parse_ins(br);
+                }
+                catch (Exception ex) { break; }
                 inst.Add(i);
             }
 
